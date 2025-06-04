@@ -65,7 +65,10 @@ export const wipe = functions.https.onCall(async (data, context) => {
         if (typeof buffer == "object") {
           const arr: { id: string }[] = Object.values(buffer);
           const index = arr.findIndex((v) => v.id === data.id);
-          return arr.splice(index + 1);
+          if (index >= 0) {
+            arr.splice(0, index + 1);
+          }
+          return arr;
         }
         throw new Error(
           `buffer not as expected ${typeof buffer} ${JSON.stringify(buffer)}`
