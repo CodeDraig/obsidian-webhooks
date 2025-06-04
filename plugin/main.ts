@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+/* eslint-disable no-console, no-shadow */
 import { App, Notice, Plugin, PluginSettingTab, Setting } from "obsidian";
 import {
   Auth,
